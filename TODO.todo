@@ -1,0 +1,22 @@
+Basic functionality:
+	✔ Webpack to compile ES6 @done (14/04/2017, 09:03:34)
+	✔ 2 webpack configs @done (14/04/2017, 09:03:34)
+	✔ Code splitting @done (14/04/2017, 09:03:33)
+
+Canvas:
+	✔ Fool proof background settings @done (14/04/2017, 09:07:39)
+	✔ Change background do be just a fillRect, instead of a css property (drawing on top of the other frames) @done (14/04/2017, 09:07:41)
+	✔ Create element without doing "weird" stuff @done (14/04/2017, 09:07:43)
+	Shapes from string:
+		✔ rect @done (14/04/2017, 09:08:35)
+		✔ triangle @done (14/04/2017, 09:38:55)
+		✔ ellipse @done (14/04/2017, 09:50:42)
+	✔ Shapes from point path @done (14/04/2017, 09:08:26)
+	Fill:
+		✔ Similar format to background @done (14/04/2017, 10:03:34)
+	Stroke:
+		✔ Similar format to fill and background @done (14/04/2017, 10:03:35)
+
+Renderer:
+	☐ Add renderer with framerate settings
+	☐ Add a render function that takes another function as a parameter and runs with an interval of 1000/frameRate
