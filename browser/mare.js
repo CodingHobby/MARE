@@ -71,11 +71,11 @@ const Mare = {
 		}
 
 		noFill() {
-			this.ctx.fillStyle = this.rgb(this.bg)
+			this.ctx.fillStyle = null
 		}
 
 		noStroke() {
-			this.ctx.strokeStyle = this.rgb(this.bg)
+			this.ctx.strokeStyle = null
 		}
 
 		/**
@@ -164,8 +164,8 @@ const Mare = {
 
 
 			this.ctx.rect(xpos, ypos, width, height)
-			this.ctx.stroke()
-			this.ctx.fill()
+			if(this.strokeColor) this.ctx.stroke()
+			if(this.fillColor) this.ctx.fill()
 		}
 
 		rgb(c) {
@@ -212,8 +212,8 @@ const Mare = {
 
 			this.ctx.beginPath()
 			this.ctx.ellipse(xpos, ypos, radiusX, radiusY, 0, 0, 2 * Math.PI, false)
-			this.ctx.stroke()
-			this.ctx.fill()
+			if(this.strokeColor) this.ctx.stroke()
+			if(this.fillColor) this.ctx.fill()
 		}
 
 		/**
@@ -233,8 +233,8 @@ const Mare = {
 					else throw new Error('Invalid point')
 				}
 				this.ctx.closePath()
-				this.ctx.stroke()
-				this.ctx.fill()
+				if(this.strokeColor) this.ctx.stroke()
+				if(this.fillColor) this.ctx.fill()
 			}
 		}
 	}
