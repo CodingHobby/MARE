@@ -1,4 +1,5 @@
-module.exports = class Canvas {
+const Mare = {
+	Canvas: class {
 	/**
 	 * Creates an instance of the Canvas object 
 	 *
