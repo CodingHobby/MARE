@@ -1,7 +1,7 @@
 {
   "name": "marejs",
   "author": "Corrado Canepari <caneparicorrado@outloook.it>",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./src/mare.js",
   "scripts": {
     "dev:app": "webpack-dev-server"
@@ -14,5 +14,11 @@
     "webpack-dev-server": "^2.4.2"
   },
   "license": "MIT",
-  "repository": "https://github.com/codinghobby/mare"
+  "repository": "https://github.com/codinghobby/mare",
+  "keywords": [
+    "rendering",
+    "rendering-engine",
+    "canvas",
+    "2d"
+  ]
 }
