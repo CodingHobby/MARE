@@ -1,7 +1,7 @@
 {
   "name": "marejs",
   "author": "Corrado Canepari <caneparicorrado@outloook.it>",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./src/mare.js",
   "scripts": {
     "dev:app": "webpack-dev-server",
