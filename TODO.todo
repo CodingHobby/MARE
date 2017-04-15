@@ -16,7 +16,3 @@ Canvas:
 		✔ Similar format to background @done (14/04/2017, 10:03:34)
 	Stroke:
 		✔ Similar format to fill and background @done (14/04/2017, 10:03:35)
-
-Renderer:
-	☐ Add renderer with framerate settings
-	☐ Add a render function that takes another function as a parameter and runs with an interval of 1000/frameRate

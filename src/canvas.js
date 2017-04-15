@@ -11,6 +11,8 @@ module.exports = class Canvas {
 		this.width = w !== undefined ? w : 400
 		this.height = h !== undefined ? h : this.width
 
+		this.fillColor = [255, 255, 255]
+
 		// All operations which require config
 		if (opts) {
 			this.bg = opts.bg || [0, 0, 0]
@@ -112,6 +114,11 @@ module.exports = class Canvas {
 		let gp = g != undefined ? g : rp
 		let bp = b != undefined ? b : gp
 
+		// Clearing the canvas
+		this.ctx.clearRect(0, 0, this.width, this.height)
+		this.el.width = -1
+		this.el.width = this.width
+
 		// Change background
 		if (typeof r == "number") {
 			this.ctx.fillStyle = `rgb(${rp}, ${gp}, ${bp})`
@@ -124,6 +131,8 @@ module.exports = class Canvas {
 		} else {
 			throw new Error('Unsupported color format')
 		}
+
+		this.ctx.fillStyle = this.rgb(this.fillColor)
 		// Return the new background color
 		return this.bg
 	}
@@ -143,9 +152,13 @@ module.exports = class Canvas {
 		let width = w !== undefined ? w : 100
 		let height = h !== undefined ? h : width
 
-		this.ctx.fillStyle = '#FFFFFF'
+		this.ctx.fillStyle = this.fillColor
 		this.ctx.rect(xpos, ypos, width, height)
 		this.ctx.fill()
+	}
+
+	rgb(c) {
+		return `${c[0], c[1], c[2]}`
 	}
 
 	/**
@@ -162,7 +175,7 @@ module.exports = class Canvas {
 		let width = w !== undefined ? w : 100
 		let height = h !== undefined ? h : width
 
-		this.ctx.fillStyle = '#FFFFFF'
+		this.ctx.fillStyle = this.rgb(this.fillColor)
 		this.ctx.beginPath()
 		this.ctx.moveTo(xpos, ypos)
 		this.ctx.lineTo((xpos + width) / 2, ypos + height)
@@ -186,8 +199,8 @@ module.exports = class Canvas {
 		let radiusX = rx !== undefined ? rx : 100
 		let radiusY = ry !== undefined ? ry : radiusX
 
-		this.ctx.fillStyle = '#FFFFFF'
-		this.ctx.beginPath()
+		this.ctx.fillStyle =
+			this.ctx.beginPath()
 		this.ctx.ellipse(xpos, ypos, radiusX, radiusY, 0, 0, 2 * Math.PI, false)
 		this.ctx.fill()
 	}
@@ -209,7 +222,7 @@ module.exports = class Canvas {
 				else throw new Error('Invalid point')
 			}
 			this.ctx.closePath()
-			this.ctx.fillStyle = "#FFFFFF"
+			this.ctx.fillStyle = this.rgb(this.fillColor)
 			this.ctx.fill()
 		}
 	}
