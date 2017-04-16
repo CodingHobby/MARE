@@ -39,4 +39,4 @@ canvas.rect(20, 20, 100, 100)
 
 Check out the [wiki](https://www.github.com/codinghobby/mare/wiki) section of the github repo to learn how to use it!
 
-Also, this package goes really well with another package, currently in development, which is [My lil' cat](https://www.github.com/codinghobby/my-lil-cat), which is a physics engine, which uses this as its renderer.
+Also, this package goes really well with another package, currently in development, which is [My lil' cat](https://www.npmjs.org/my-lil-cat), which is a physics engine, which uses this as its renderer.
