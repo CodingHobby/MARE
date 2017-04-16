@@ -1,7 +1,7 @@
 {
   "name": "marejs",
   "author": "Corrado Canepari <caneparicorrado@outloook.it>",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./src/mare.js",
   "scripts": {
     "dev:app": "webpack-dev-server"
@@ -21,7 +21,7 @@
     "canvas",
     "2d"
   ],
-    "contributors": [
+  "contributors": [
     "Elisa (Cat O' Mine) Quagliaroli"
   ]
 }
