@@ -14,5 +14,12 @@ Canvas:
 	✔ Shapes from point path @done (14/04/2017, 09:08:26)
 	Fill:
 		✔ Similar format to background @done (14/04/2017, 10:03:34)
+		✔ noFill() @done (16/04/2017, 23:33:13)
 	Stroke:
 		✔ Similar format to fill and background @done (14/04/2017, 10:03:35)
+		✔ noStroke() @done (16/04/2017, 23:33:20)
+
+Utils:
+	✔ Map between ranges @done (17/04/2017, 23:29:27)
+	☐ Random(n | Array)
+	

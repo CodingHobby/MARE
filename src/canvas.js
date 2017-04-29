@@ -14,6 +14,9 @@ module.exports = class Canvas {
 		this.fillColor = [255, 255, 255]
 		this.strokeColor = [0, 0, 0]
 
+		this.setup = null
+		this.loop = null
+
 		// All operations which require config
 		if (opts) {
 			this.bg = opts.bg || [0, 0, 0]
@@ -21,21 +24,16 @@ module.exports = class Canvas {
 			this.bg = [0, 0, 0]
 		}
 
-		// This will avoid strange errors during testing
-		if (document) {
-			this.el = document.createElement('CANVAS')
-			this.ctx = this.el.getContext('2d')
+		this.el = document.createElement('CANVAS')
+		this.ctx = this.el.getContext('2d')
 
-			// NOTE if w and h were set as CSS attributes the canvas would just be stretched
-			this.el.setAttribute('width', this.width)
-			this.el.setAttribute('height', this.height)
+		// NOTE if w and h were set as CSS attributes the canvas would just be stretched
+		this.el.setAttribute('width', this.width)
+		this.el.setAttribute('height', this.height)
 
-			this.el.style.background = this.background(this.bg)
+		this.el.style.background = this.background(this.bg)
 
-			document.body.appendChild(this.el)
-		} else {
-			throw new Error('No document')
-		}
+		document.body.appendChild(this.el)
 	}
 
 
@@ -70,11 +68,18 @@ module.exports = class Canvas {
 	}
 
 	noFill() {
-		this.ctx.fillStyle = this.rgb(this.bg)
+		this.fillColor = null
+		this.ctx.fillStyle = null
 	}
 
 	noStroke() {
-		this.ctx.strokeStyle = this.rgb(this.bg)
+		this.strokeColor = null
+		this.ctx.strokeStyle = null
+	}
+
+	display() {
+		if (this.fillColor) this.ctx.fill()
+		if (this.strokeColor) this.ctx.stroke()
 	}
 
 	/**
@@ -163,8 +168,7 @@ module.exports = class Canvas {
 
 
 		this.ctx.rect(xpos, ypos, width, height)
-		this.ctx.stroke()
-		this.ctx.fill()
+		this.display()
 	}
 
 	rgb(c) {
@@ -190,8 +194,7 @@ module.exports = class Canvas {
 		this.ctx.lineTo((xpos + width) / 2, ypos + height)
 		this.ctx.lineTo(xpos + width, ypos)
 		this.ctx.closePath()
-		this.ctx.stroke()
-		this.ctx.fill()
+		this.display()
 	}
 
 
@@ -211,8 +214,7 @@ module.exports = class Canvas {
 
 		this.ctx.beginPath()
 		this.ctx.ellipse(xpos, ypos, radiusX, radiusY, 0, 0, 2 * Math.PI, false)
-		this.ctx.stroke()
-		this.ctx.fill()
+		this.display()
 	}
 
 	/**
@@ -232,8 +234,15 @@ module.exports = class Canvas {
 				else throw new Error('Invalid point')
 			}
 			this.ctx.closePath()
-			this.ctx.stroke()
-			this.ctx.fill()
+			this.display()
 		}
+	}
+
+	/**
+	 * Run setup and loop function
+	 */
+	run() {
+			if (this.setup) this.setup()
+			if (this.loop) this.loop()
 	}
 }
